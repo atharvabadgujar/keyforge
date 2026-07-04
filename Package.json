@@ -1,0 +1,42 @@
+{
+  "name": "keyforge",
+  "displayName": "KeyForge",
+  "description": "Never hit an AI rate limit again. Pool multiple API keys and rotate automatically.",
+  "version": "0.1.0",
+  "publisher": "keyforge-oss",
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other", "Machine Learning"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "keyforge.openDashboard", "title": "KeyForge: Open Dashboard" },
+      { "command": "keyforge.addKey", "title": "KeyForge: Add API Key" },
+      { "command": "keyforge.setupContinue", "title": "KeyForge: Set up with Continue" }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        { "id": "keyforge", "title": "KeyForge", "icon": "resources/icon.svg" }
+      ]
+    },
+    "views": {
+      "keyforge": [
+        { "id": "keyforge.dashboard", "name": "Key Vault", "type": "webview" }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.0",
+    "typescript": "^5.4.0"
+  }
+}
